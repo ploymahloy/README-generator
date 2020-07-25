@@ -48,11 +48,9 @@ inquirer.prompt([
     message: "Questions:"
   },
 ]).then(function(data) {
+  console.log(data);
 
-  var filename = data.name.toLowerCase().split(' ').join('') + ".md";
-
-  fs.writeFile("README.md", JSON.stringify(data, null, '\t'), function(err) {
-
+  fs.writeFile("README.md", JSON.stringify(data, null, '\t'), function(err) { 
     if (err) {
       return console.log(err);
     }
