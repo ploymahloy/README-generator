@@ -51,17 +51,19 @@ inquirer.prompt([
 
 .then(function(data) {
 
-  const docMDN = [
-    `# ${data.title}
-     ## ${data.description}
-     ## ${data.tableofcontents}
-     ## ${data.installation}
-     ## ${data.usage}
-     ## ${data.license}
-     ## ${data.contributing}
-     ## ${data.tests}
-     ## ${data.questions}`
-  ]
+  const docMDN =
+  `
+  # ${data.title}
+  ## ${data.description}
+  ## ${data.tableofcontents}
+  ## ${data.installation}
+  ## ${data.usage}
+  ## ${data.license}
+  ## ${data.contributing}
+  ## ${data.tests}
+  ## ${data.questions}
+  `
+
 
   fs.writeFile("README.md", docMDN, function(err) { 
     if (err) {
