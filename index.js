@@ -14,7 +14,7 @@ inquirer.prompt([
   },
   {
     type: "input",
-    name: "table-of-contents",
+    name: "tableofcontents",
     message: "Table of Contents:"
   },
   {
@@ -47,10 +47,23 @@ inquirer.prompt([
     name: "questions",
     message: "Questions:"
   },
-]).then(function(data) {
-  console.log(data);
+])
 
-  fs.writeFile("README.md", JSON.stringify(data, null, '\t'), function(err) { 
+.then(function(data) {
+
+  const docMDN = [
+    `# ${data.title}
+     ## ${data.description}
+     ## ${data.tableofcontents}
+     ## ${data.installation}
+     ## ${data.usage}
+     ## ${data.license}
+     ## ${data.contributing}
+     ## ${data.tests}
+     ## ${data.questions}`
+  ]
+
+  fs.writeFile("README.md", docMDN, function(err) { 
     if (err) {
       return console.log(err);
     }
